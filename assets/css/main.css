@@ -2491,7 +2491,7 @@
 			}
 
 				.feature.right .image img {
-					right: 0;
+					left: 0;
 					top: 0;
 				}
 
@@ -2576,7 +2576,7 @@
 			background-image: url('images/wtg.png');
 			background-position: center;
 			background-size: contain;
-			background-repeat: none;
+			background-repeat: no-repeat;
 		}
 
 			#header .logo.fa-paper-plane-o:before {
