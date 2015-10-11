@@ -2474,7 +2474,7 @@
 			}
 
 				.feature.left .image img {
-					right: 0;
+					left: 0;
 					top: 0;
 				}
 
@@ -2491,7 +2491,7 @@
 			}
 
 				.feature.right .image img {
-					left: 0;
+					right: 0;
 					top: 0;
 				}
 
@@ -2506,7 +2506,7 @@
 /* Header */
 
 	#header {
-		background-attachment: scroll,							scroll,					fixed;
+		background-attachment: scroll, scroll, fixed;
 		background-image: url("images/top-3200.svg"), url("images/overlay.png"), url("../../images/header.jpg");
 		background-position: bottom center,					top left,				center center;
 		background-repeat: repeat-x,						repeat,					no-repeat;
@@ -2564,17 +2564,19 @@
 		}
 
 		#header .logo {
-			background: #4eb980;
-			border-radius: 100%;
 			color: #ffffff;
 			cursor: default;
 			display: inline-block;
 			font-size: 2.25em;
-			height: 2.35em;
+			height: 3.013em;
 			line-height: 2.35em;
 			margin: 0 0 0.75em 0;
 			text-align: center;
-			width: 2.35em;
+			width: 10em;
+			background-image: url('images/wtg.png');
+			background-position: center;
+			background-size: contain;
+			background-repeat: none;
 		}
 
 			#header .logo.fa-paper-plane-o:before {
@@ -2597,7 +2599,7 @@
 
 	#footer {
 		background-attachment: scroll;
-		background-color: #4eb980;
+		background-color: #831a1a;
 		background-image: url("images/bottom-3200.svg");
 		background-position: top center;
 		background-repeat: repeat-x;
@@ -3126,3 +3128,8 @@
 				}
 
 	}
+
+.red {
+	color: #831a1a;
+	border-color: #831a1a;
+}
