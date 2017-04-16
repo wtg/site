@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+<head>
+<title>Web Technologies Group</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<link rel="stylesheet" href="/static/projects.css">
+</head>
+
+<body>
+
+<div class="header fixed-top">
+    <div class="container">
+        <div class="wtg-logo d-inline-block">
+            <img src="/static/wtg.svg" width="100" height="30" alt="">
+        </div>
+        <div class="form-inline float-right">
+            <a href="mailto:webtech@union.rpi.edu" class="btn btn-sm btn-outline-danger">Email WebTech</a>
+        </div>
+    </div>
+</div>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Web Technologies Group</h1>
+        <p class="lead text-muted">
+            Creating technological solutions to serve the students of
+            <span class="d-inline-block">Rensselaer Polytechnic Institute.</span>
+            Take a look at some of our projects below, and then get involved!
+        </p>
+        <p>
+            <a href="mailto:webtech@union.rpi.edu" class="btn btn-sm btn-outline-danger">Email WebTech</a>
+        </p>
+    </div>
+</section>
+
+<!-- <nav class="navbar navbar-light sticky-top">
+</nav> -->
+
+<div class="projects">
+    <div class="container card-columns">
+        {% for project in projects %}
+        <div class="project card">
+            <div class="card-block">
+                <h3 class="card-title">
+                    {{ project.name }}
+                </h3>
+                {% if project.repo.homepage %}
+                <a class="btn btn-outline-danger btn-sm" href="{{ project.repo.homepage }}">Use</a>
+                {% endif %}
+                <a class="btn btn-secondary btn-sm" href="{{ project.repo.html_url }}">View code</a>
+                <a class="btn btn-secondary btn-sm" href="{{ project.repo.html_url + '/issues' }}">{{ project.repo.open_issues_count_text }}</a>
+            </div>
+            <div class="card-block">
+                <p class="card-text lead">{{ project.repo.description }}</p>
+            </div>
+            <ul class="list-group list-group-flush">
+                {% for commit in project.commits %}
+                <li class="list-group-item">
+                    <p style="white-space: pre-wrap;">{{ commit.commit.message }}</p>
+                    <div class="user-info">
+                        <a href="{{ commit.author.html_url }}">
+                            <img class="user-avatar" src="{{ commit.author.avatar_url }}">
+                            <span class="user-name">{{ commit.author.name }}</span>
+                        </a>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{#
+<div class="contributors">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-sm-12">
+                <h2 class="display-4 section-title">Contributors</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 col-sm-4 col-md-2 contributor text-center" v-for="contributor in allContributors" v-if="users[contributor.login] && users[contributor.login].name">
+                <img class="user-avatar" v-bind:src="users[contributor.login].avatar_url">
+                <p>{{ users[contributor.login].name }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+#}
+
+<footer class="text-muted text-center">
+    <div class="container">
+        <p>
+            This website was created by the
+            <span class="d-inline-block">Web Technologies Group</span>
+            of the
+            <span class="d-inline-block"><a href="http://sg.rpi.edu/senate/">Rensselaer Union Student Senate</a>.</span>
+        </p>
+    </div>
+</footer>
+
+<script src="/static/projects.js"></script>
+
+</body>
+</html>
