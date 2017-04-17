@@ -12,14 +12,13 @@ def get_project_stubs():
     # list of tuples of human-readable name and GitHub repo slug
     basic_info = [
         ('Elections', 'elections'),
-        ('Shuttle Signups', 'shuttle-signups'),
-        ('Senate Survey', 'senate-survey'),
-        ('Shuttle Tracking 2', 'shuttle_tracking_2'),
-        ('Petitions', 'petitions'),
         ('Flagship', 'flagship_docs_4'),
+        ('Petitions', 'petitions'),
+        ('Senate Survey', 'senate-survey'),
+        ('Shuttle Signups', 'shuttle-signups'),
+        ('Shuttle Tracking 2', 'shuttle_tracking_2'),
         ('WebTech website', 'wtg.github.io')
     ]
-    basic_info.sort()
 
     project_stubs = []
     for info in basic_info:
