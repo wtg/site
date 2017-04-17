@@ -82,17 +82,22 @@
     margin-bottom: 2rem;
 }
 
+.project .description {
+    padding-top: 0;
+}
+
+.project .commit-message {
+    margin-bottom: 10px;
+}
+
 .project .user-info {
     width: 100%;
+    font-size: 13px;
 }
 
 .project .user-avatar {
     border-radius: 50%;
     width: 26px;
-}
-
-.project .user-name {
-    font-size: 13px;
 }
 
 .contributors h3 {

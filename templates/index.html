@@ -53,17 +53,22 @@
                 <a class="btn btn-secondary btn-sm" href="{{ project.repo.html_url }}">View code</a>
                 <a class="btn btn-secondary btn-sm" href="{{ project.repo.html_url + '/issues' }}">{{ project.repo.open_issues_count_text }}</a>
             </div>
-            <div class="card-block">
+            <div class="card-block description">
                 <p class="card-text lead">{{ project.repo.description }}</p>
             </div>
             <ul class="list-group list-group-flush">
                 {% for commit in project.commits %}
                 <li class="list-group-item">
-                    <p style="white-space: pre-wrap;">{{ commit.commit.message }}</p>
+                    <p class="commit-message" style="white-space: pre-wrap;">{{ commit.commit.message }}</p>
                     <div class="user-info">
                         <a href="{{ commit.author.html_url }}">
                             <img class="user-avatar" src="{{ commit.author.avatar_url }}">
+                        </a>
+                        <a href="{{ commit.author.html_url }}">
                             <span class="user-name">{{ commit.author.name }}</span>
+                        </a>
+                        <a href="{{ commit.html_url }}" class="float-right">
+                            <code class="commit-hash">{{ commit.sha[:7] }}</code>
                         </a>
                     </div>
                 </li>
