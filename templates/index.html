@@ -44,7 +44,7 @@
         {% for project in projects %}
         <div class="project card">
             <div class="card-block">
-                <h3 class="card-title">
+                <h3 class="card-title name">
                     {{ project.name }}
                 </h3>
                 {% if project.repo.homepage %}
@@ -54,7 +54,7 @@
                 <a class="btn btn-secondary btn-sm" href="{{ project.repo.html_url + '/issues' }}">{{ project.repo.open_issues_count_text }}</a>
             </div>
             <div class="card-block description">
-                <p class="card-text lead">{{ project.repo.description }}</p>
+                <p class="card-text">{{ project.repo.description }}</p>
             </div>
             <ul class="list-group list-group-flush">
                 {% for commit in project.commits %}
