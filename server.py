@@ -19,6 +19,7 @@ def get_project_stubs():
         ('Flagship', 'flagship_docs_4'),
         ('WebTech website', 'wtg.github.io')
     ]
+    basic_info.sort()
 
     project_stubs = []
     for info in basic_info:
