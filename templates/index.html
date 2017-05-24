@@ -47,17 +47,22 @@
                 <div class="card-block">
                     <div class="card-title">
                         <h3 class="name">
-                            {{ project.name}}
+                            {{ project.name }}
                         </h3>
-                        <a href="{{ project.repo.html_url + '/network' }}">
+                        <a href="{{ project.repo.html_url + '/watchers' }}">
                             <span class="badge badge-default">
-                        <i class="fa fa-code-fork" aria-hidden="true"></i> {{ project.repo.forks_count }}
-                    </span>
+                                <i class="fa fa-eye" aria-hidden="true"></i> {{ project.repo.subscribers_count }}
+                            </span>
                         </a>
                         <a href="{{ project.repo.html_url + '/stargazers' }}">
                             <span class="badge badge-default">
-                        <i class="fa fa-star" aria-hidden="true"></i> {{ project.repo.stargazers_count }}
-                    </span>
+                                <i class="fa fa-star" aria-hidden="true"></i> {{ project.repo.stargazers_count }}
+                            </span>
+                        </a>
+                        <a href="{{ project.repo.html_url + '/network' }}">
+                            <span class="badge badge-default">
+                                <i class="fa fa-code-fork" aria-hidden="true"></i> {{ project.repo.forks_count }}
+                            </span>
                         </a>
                     </div>
                     {% if project.repo.homepage %}
