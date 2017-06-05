@@ -86,14 +86,6 @@
     font-weight: 400;
 }
 
-.project .badge {
-    font-size: 100%;
-}
-
-.project .card-title a:hover {
-    text-decoration: none;
-}
-
 .project .description {
     padding-top: 0;
     font-size: 19px;
