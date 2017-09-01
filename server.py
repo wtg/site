@@ -16,8 +16,8 @@ def get_project_stubs():
         ('Petitions', 'petitions'),
         ('Senate Survey', 'senate-survey'),
         ('Shuttle Signups', 'shuttle-signups'),
-        ('Shuttle Tracking 2', 'shuttle_tracking_2'),
-        ('WebTech website', 'wtg.github.io')
+        ('Shuttle Tracker', 'shuttletracker'),
+        ('WebTech website', 'site')
     ]
 
     project_stubs = []
