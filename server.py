@@ -15,6 +15,7 @@ def get_project_stubs():
         ('Flagship', 'flagship_docs_4'),
         ('Petitions', 'petitions'),
         ('Senate Survey', 'senate-survey'),
+        ('Student Government website', 'sg-site'),
         ('Shuttle Signups', 'shuttle-signups'),
         ('Shuttle Tracker', 'shuttletracker'),
         ('WebTech website', 'site')
