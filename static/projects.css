@@ -138,3 +138,9 @@ footer .wtg-logo {
     background-color: transparent;
     border-color: #ED1C24;
 }
+
+.btn-outline-wtg-red:hover{
+    color: #fff;
+    background-color: #ED1C24;
+    border-color: #ED1C24;
+}
