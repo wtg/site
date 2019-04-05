@@ -13,7 +13,8 @@ def get_project_stubs():
     basic_info = [
         ('Elections', 'elections'),
         ('Flagship', 'flagship_docs_4'),
-        ('Petitions', 'petitions'),
+        ('Petitions (old)', 'petitions'),
+        ('Petitions', 'petitions-rewrite'),
         ('Senate Survey', 'senate-survey'),
         ('Student Government website', 'sg-site'),
         ('Identity', 'identity'),
