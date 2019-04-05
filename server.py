@@ -16,7 +16,7 @@ def get_project_stubs():
         ('Petitions', 'petitions'),
         ('Senate Survey', 'senate-survey'),
         ('Student Government website', 'sg-site'),
-        ('Shuttle Signups', 'shuttle-signups'),
+        ('Identity', 'identity'),
         ('Shuttle Tracker', 'shuttletracker'),
         ('WebTech website', 'site')
     ]
