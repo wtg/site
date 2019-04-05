@@ -131,3 +131,10 @@ footer .wtg-logo {
     margin-left: 30px;
     margin-bottom: 30px;
 }
+
+.btn-outline-wtg-red{
+    color: #ED1C24;
+    background-image: none;
+    background-color: transparent;
+    border-color: #ED1C24;
+}
