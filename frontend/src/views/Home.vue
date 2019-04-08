@@ -27,8 +27,7 @@
     <div class="section">
       <div class="container">
         <div>
-          <Project />
-          <Project />
+          <ProjectVue v-for="project in Projects" :project="project" :key="project.name"/>
         </div>
       </div>
     </div>
@@ -37,12 +36,36 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import Project from '@/components/Project.vue'; // @ is an alias to /src
+import ProjectVue from '@/components/Project.vue'; // @ is an alias to /src
+import Project from '../models/project';
 
 export default Vue.extend({
   name: 'WebTech',
   components: {
-    Project,
+    ProjectVue,
   },
+  data (){
+    return {
+      Projects: [],
+    } as {
+      Projects: Project[];
+    }
+  }, 
+  mounted(){
+    this.fetchData();
+  },
+  methods: {
+    fetchData(){
+      let ret: Project[] = [];
+      fetch("/api/projects").then(data => data.json()).then(val => {
+        console.log(val)
+        val.forEach(element => {
+          let p = new Project(element.name, element.repo.html_url, element.repo.description);
+          ret.push(p);
+        });
+        this.Projects = ret;
+      });
+    }
+  }
 });
 </script>

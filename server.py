@@ -59,11 +59,12 @@ def get_projects():
         project['repo'] = get_json_from_url(repo_url)
 
         project['repo']['open_issues_count_text'] = get_open_issues_count_text(project['repo']['open_issues_count'])
-
         # recent commits
         commits_url = repo_url + '/commits'
         project['commits'] = get_json_from_url(commits_url)[:5]
-
+        contributors_url = repo_url + '/contributors'
+        project['contributors'] = get_json_from_url(contributors_url)[:5]
+        
         for commit in project['commits']:
             commit['author']['name'] = get_json_from_url(commit['author']['url'])['name']
             commit['commit']['message'] = clean_commit_message_newlines(commit['commit']['message'])
@@ -86,6 +87,10 @@ def handle_index():
     projects = get_projects()
     return render_template('index.html', projects=projects)
 
+@app.route('/api/projects')
+def handle_projects_api():
+    projects = get_projects()
+    return jsonify(projects)
 
 if __name__ == '__main__':
     app.run(debug=True)
