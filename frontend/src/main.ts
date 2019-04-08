@@ -4,6 +4,9 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+import '@/assets/PONTIAC_BLACK.OTF';
+import '@/assets/styles.scss';
+
 new Vue({
   router,
   render: (h) => h(App),
