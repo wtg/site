@@ -13,16 +13,27 @@
             <br>
             <p>
                 <div class="field is-grouped">
-                    <div class="control">
-                        <a href="">Visit</a>
-
+                    <div  v-if="project.webpage != ''" class="control">
+                        <a :href="project.webpage">Visit</a>
                     </div>
                     <div class="control">
                         <a href="">View Source</a>
                     </div>
                 </div>
             </p>
+            <div class="columns">
+                <div class="column"></div>
+                <div class="column">
+                    <p class="wtg-title">
+                        Contributors
+                    </p>
+                    <div class="prof-img-holder">
+                        <img v-for="contributor in project.contributors" :key="contributor.username" class="contributor-img" :src="contributor.avatarURL" />
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
 </template>
 <script lang="ts">
@@ -38,5 +49,22 @@ export default Vue.extend({
 });
 </script>
 <style lang="scss" scoped>
+
+    .contributor-img{
+        width: 100px;
+        height: 100px;
+        margin: 10px;
+        border-radius: 50%;
+        border-style: solid;
+        border-width: 2px;
+        border-color: #ED1C24;
+    }
+
+    .prof-img-holder{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between
+        
+    }
 
 </style>

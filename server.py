@@ -64,7 +64,7 @@ def get_projects():
         project['commits'] = get_json_from_url(commits_url)[:5]
         contributors_url = repo_url + '/contributors'
         project['contributors'] = get_json_from_url(contributors_url)[:5]
-        
+        print(len(project['contributors']))
         for commit in project['commits']:
             commit['author']['name'] = get_json_from_url(commit['author']['url'])['name']
             commit['commit']['message'] = clean_commit_message_newlines(commit['commit']['message'])

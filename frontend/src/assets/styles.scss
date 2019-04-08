@@ -35,6 +35,10 @@ $screen-md-max: ($screen-lg-min - 1);
     font-family: $title-font;
 }
 
+.is-flex-centered{
+    justify-content: center !important;
+}
+
 @media (max-width: 1279px){
     .is-superlarge-title{
         font-size: 8.5rem;

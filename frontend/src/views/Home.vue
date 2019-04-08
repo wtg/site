@@ -13,12 +13,18 @@
           </div>
         </div>
         <div class="columns is-centered">
-          <div class="field is-grouped">
-            <div class="control">
-              <button class="button is-danger">Find WebTech on GitHub</button>
-            </div>
-            <div class="control">
-              <button class="button is-danger">Email WebTech</button>
+          <div class="column is-fullwidth-tablet is-two-thirds-desktop">
+            <div class="field is-flex-centered is-grouped">
+              <div class="control">
+                <a href="https://github.com/wtg/">
+                  <button class="button is-danger">Find WebTech on GitHub</button>
+                </a>
+              </div>
+              <div class="control">
+                <a href="mailto:webtech@union.listsl.rpi.edu">
+                  <button class="button is-danger">Email WebTech</button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -38,6 +44,7 @@
 import Vue from 'vue';
 import ProjectVue from '@/components/Project.vue'; // @ is an alias to /src
 import Project from '../models/project';
+import Contributor from '../models/contributor';
 
 export default Vue.extend({
   name: 'WebTech',
@@ -60,7 +67,11 @@ export default Vue.extend({
       fetch("/api/projects").then(data => data.json()).then(val => {
         console.log(val)
         val.forEach(element => {
-          let p = new Project(element.name, element.repo.html_url, element.repo.description);
+          let p = new Project(element.name, element.repo.html_url, element.repo.description, element.repo.homepage);
+          element.contributors.forEach(element => {
+            let contributor: Contributor = new Contributor(element.login, element.avatar_url, element.contributions, element.html_url);
+            p.contributors.push(contributor)
+          });
           ret.push(p);
         });
         this.Projects = ret;
