@@ -28,10 +28,13 @@ $screen-md-max: ($screen-lg-min - 1);
 
 @import "~bulma/bulma.sass";
 
+.is-supreme{
+    background: $red;
+    color: $white!important;
+}
 
 .wtg-title{
     @extend .title;
-    color: $black;
     font-family: $title-font;
 }
 

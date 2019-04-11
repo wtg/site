@@ -4,7 +4,7 @@
       <div class="container">
         <div class="columns is-centered">
           <div class="column is-fullwidth-tablet is-two-thirds-desktop">
-            <p class="wtg-title is-danger is-superlarge-title">
+            <p class="wtg-title has-text-danger is-superlarge-title">
             WebTech
             </p>
             <p class="subtitle is-3 has-text-grey">
@@ -51,32 +51,36 @@ export default Vue.extend({
   components: {
     ProjectVue,
   },
-  data (){
+  data() {
     return {
       Projects: [],
     } as {
       Projects: Project[];
-    }
-  }, 
-  mounted(){
+    };
+  },
+  mounted() {
     this.fetchData();
   },
   methods: {
-    fetchData(){
-      let ret: Project[] = [];
-      fetch("/api/projects").then(data => data.json()).then(val => {
-        console.log(val)
-        val.forEach(element => {
-          let p = new Project(element.name, element.repo.html_url, element.repo.description, element.repo.homepage);
-          element.contributors.forEach(element => {
-            let contributor: Contributor = new Contributor(element.login, element.avatar_url, element.contributions, element.html_url);
-            p.contributors.push(contributor)
+    fetchData() {
+      const ret: Project[] = [];
+      fetch('/api/projects').then((data) => data.json()).then((val) => {
+        console.log(val);
+        val.forEach((element: any) => {
+          const p = new Project(element.name, element.repo.html_url, element.repo.description, element.repo.homepage);
+          element.contributors.forEach((elm: any) => {
+            const contributor: Contributor = new Contributor(elm.login, elm.avatar_url,
+              elm.contributions, elm.html_url);
+            p.contributors.push(contributor);
           });
           ret.push(p);
         });
         this.Projects = ret;
       });
-    }
-  }
+    },
+  },
 });
 </script>
+<style lang="scss" scoped>
+
+</style>

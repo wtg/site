@@ -6,7 +6,7 @@ export default class Contributor {
     public contributions: number;
     public profileURL: string;
 
-    constructor(username: string, avatarURL: string, contributions: number, profileURL: string){
+    constructor(username: string, avatarURL: string, contributions: number, profileURL: string) {
         this.username = username;
         this.avatarURL = avatarURL;
         this.contributions = contributions;

@@ -7,6 +7,17 @@ from cachetools import TTLCache, cached
 
 app = Flask(__name__)
 
+def getProjectScreenshots(url):
+    if os.getenv('FF_PATHWAY'):
+        os.system(os.getenv('FF_PATHWAY ' + "--"))
+    return 
+
+def getProjectScreenshots(slug_url_tuple_arr):
+    if os.getenv('FF_PATHWAY'):
+        for i in range(len(slug_url_tuple_arr)):
+            os.system(os.getenv('FF_PATHWAY') + " -headless --screenshot screenshot/" + slug_url_tuple_arr[i][0] + ".png " + slug_url_tuple_arr[i][1] +" --window-size=1000,800")
+    return 
+
 
 def get_project_stubs():
     # list of tuples of human-readable name and GitHub repo slug
@@ -52,27 +63,32 @@ def clean_commit_message_newlines(commit_message):
 
 def get_projects():
     projects = []
+    project_slug_url_arr = []
     for project in get_project_stubs():
 
         # base repo info
         repo_url = 'https://api.github.com/repos/wtg/' + project['slug']
         project['repo'] = get_json_from_url(repo_url)
-
+        if project['repo']['homepage'] != None:
+            project_slug_url_arr.append((project['slug'],project['repo']['homepage']))
+        
         project['repo']['open_issues_count_text'] = get_open_issues_count_text(project['repo']['open_issues_count'])
         # recent commits
         commits_url = repo_url + '/commits'
         project['commits'] = get_json_from_url(commits_url)[:5]
         contributors_url = repo_url + '/contributors'
-        project['contributors'] = get_json_from_url(contributors_url)[:5]
-        print(len(project['contributors']))
+        project['contributors'] = get_json_from_url(contributors_url)
         for commit in project['commits']:
             commit['author']['name'] = get_json_from_url(commit['author']['url'])['name']
             commit['commit']['message'] = clean_commit_message_newlines(commit['commit']['message'])
 
         projects.append(project)
-
+    getAllProjectScreenshots(project_slug_url_arr)
     return projects
 
+def getAllProjectScreenshots(screenshot_slug_arr):
+    getProjectScreenshots(screenshot_slug_arr)
+    return 1
 
 @cached(cache=TTLCache(maxsize=128, ttl=60*60))
 def get_json_from_url(url):

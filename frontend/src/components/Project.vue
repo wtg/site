@@ -1,7 +1,7 @@
 <template>
     <div class="hero is-fullheight">
         <div>
-            <p class="wtg-title is-1">
+            <p class="wtg-title has-text-weight-bold is-1">
                 {{project.name}}
             </p>
             <p class="subtitle">
@@ -24,11 +24,13 @@
             <div class="columns">
                 <div class="column"></div>
                 <div class="column">
-                    <p class="wtg-title">
+                    <p class="subtitle has-text-weight-bold">
                         Contributors
                     </p>
                     <div class="prof-img-holder">
-                        <img v-for="contributor in project.contributors" :key="contributor.username" class="contributor-img" :src="contributor.avatarURL" />
+                        <a v-for="contributor in project.contributors" :key="contributor.username" :href="contributor.profileURL">
+                            <img :title="contributor.username" :alt="contributor.username" class="contributor-img" :src="contributor.avatarURL" />
+                        </a>
                     </div>
                 </div>
             </div>
@@ -42,28 +44,28 @@ import Project from '../models/project';
 
 export default Vue.extend({
     props: {
-        project:{
+        project: {
             type: Project,
-        }
-    }
+        },
+    },
 });
 </script>
 <style lang="scss" scoped>
 
     .contributor-img{
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         margin: 10px;
-        border-radius: 50%;
-        border-style: solid;
-        border-width: 2px;
-        border-color: #ED1C24;
+        // border-style: solid;
+        // border-width: 2px;
+        // box-shadow: 0 3px 8px 0 #ED1C24;
+        // border-color: #ED1C24;
     }
 
     .prof-img-holder{
         display: flex;
         flex-flow: row wrap;
-        justify-content: space-between
+        justify-content: center;
         
     }
 
