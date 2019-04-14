@@ -7,7 +7,7 @@
             <p class="wtg-title has-text-danger is-superlarge-title">
             WebTech
             </p>
-            <p class="subtitle is-3 has-text-grey">
+            <p class="subtitle is-3 is-size-5-mobile has-text-grey">
               We create technological solutions to serve the students of Rensselaer Polytechnic Institute. Take a look at some of our projects below, and then get involved!
             </p>
           </div>
@@ -33,7 +33,11 @@
     <div class="section">
       <div class="container">
         <div>
-          <ProjectVue v-for="project in Projects" :project="project" :key="project.name"/>
+          <span v-for="project in Projects"  :key="project.name">
+            <ProjectVue :project="project"/>
+            <div class="is-hidden-desktop" style="height: 100px; width: 100%;">
+            </div>
+          </span>
         </div>
       </div>
     </div>
