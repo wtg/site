@@ -65,9 +65,9 @@ export default Vue.extend({
     fetchData() {
       const ret: Project[] = [];
       fetch('/api/projects').then((data) => data.json()).then((val) => {
-        console.log(val);
         val.forEach((element: any) => {
-          const p = new Project(element.name, element.repo.html_url, element.repo.description, element.repo.homepage);
+          const p = new Project(element.name, element.repo.html_url, element.repo.description,
+                                    element.repo.homepage, element.slug);
           element.contributors.forEach((elm: any) => {
             const contributor: Contributor = new Contributor(elm.login, elm.avatar_url,
               elm.contributions, elm.html_url);

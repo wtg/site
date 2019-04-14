@@ -22,7 +22,10 @@
                 </div>
             </p>
             <div class="columns">
-                <div class="column"></div>
+                <div class="column">
+                    <img :src="project.getImageUrl()" v-if="project.hasImage()" class="has-border-wtg" />
+
+                </div>
                 <div class="column">
                     <p class="subtitle has-text-weight-bold">
                         Contributors

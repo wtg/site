@@ -15,7 +15,7 @@ def getProjectScreenshots(url):
 def getProjectScreenshots(slug_url_tuple_arr):
     if os.getenv('FF_PATHWAY'):
         for i in range(len(slug_url_tuple_arr)):
-            os.system(os.getenv('FF_PATHWAY') + " -headless --screenshot screenshot/" + slug_url_tuple_arr[i][0] + ".png " + slug_url_tuple_arr[i][1] +" --window-size=1000,800")
+            os.system(os.getenv('FF_PATHWAY') + " -headless --screenshot static/images/" + slug_url_tuple_arr[i][0] + ".png " + slug_url_tuple_arr[i][1] +" --window-size=1000,800")
     return 
 
 
@@ -81,9 +81,8 @@ def get_projects():
         for commit in project['commits']:
             commit['author']['name'] = get_json_from_url(commit['author']['url'])['name']
             commit['commit']['message'] = clean_commit_message_newlines(commit['commit']['message'])
-
         projects.append(project)
-    getAllProjectScreenshots(project_slug_url_arr)
+    # getAllProjectScreenshots(project_slug_url_arr)
     return projects
 
 def getAllProjectScreenshots(screenshot_slug_arr):

@@ -6,13 +6,24 @@ export default class Project {
     public url: string;
     public description: string;
     public webpage: string;
+    public slug: string;
 
     public contributors: Contributor[] = [];
 
-    constructor(name: string, url: string, description: string, webpage: string) {
+    constructor(name: string, url: string, description: string, webpage: string, slug: string) {
         this.name = name;
         this.url = url;
         this.description = description;
         this.webpage = webpage;
+        this.slug = slug;
+    }
+
+    public getImageUrl(): string {
+        return '/static/images/' + this.slug + '.png';
+    }
+
+    // the project only has an image if it has a website
+    public hasImage(): boolean {
+        return this.webpage !== '';
     }
 }
