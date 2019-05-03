@@ -11,14 +11,12 @@ app = Flask(__name__)
 def get_project_stubs():
     # list of tuples of human-readable name and GitHub repo slug
     basic_info = [
+        ('Shuttle Tracker', 'shuttletracker'),
         ('Elections', 'elections'),
-        ('Flagship', 'flagship_docs_4'),
+        ('Senate Survey', 'senate-survey'),
         ('Petitions (old)', 'petitions'),
         ('Petitions', 'petitions-rewrite'),
-        ('Senate Survey', 'senate-survey'),
-        ('Student Government website', 'sg-site'),
         ('Identity', 'identity'),
-        ('Shuttle Tracker', 'shuttletracker'),
         ('WebTech website', 'site')
     ]
 
@@ -37,7 +35,7 @@ def get_open_issues_count_text(num_issues):
         return 'No open issues'
     if num_issues == 1:
         return '1 open issue'
-    return f'{num_issues} open issues'
+    return '%s open issues' % num_issues
 
 
 def clean_commit_message_newlines(commit_message):
